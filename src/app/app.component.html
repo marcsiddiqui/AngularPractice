@@ -226,7 +226,19 @@
         </defs>
       </svg>
       <h1>Hello, {{ title }}</h1>
+      <h1>Hello, {{ name }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
+
+      @for (item of users; track item.fullname) {
+        <p style="color:{{item.color}}">{{item.fullname}} -- {{item.email}} -- {{item.age}} -- {{item.designation}}</p>
+      }
+
+      @for (item of products; track item.product) {
+        Quantity: <input type="number" ng-model="item.quantity" ng-change="updateTotal(x)">
+        Price: <input type="number" ng-model="item.price" ng-change="updateTotal(x)">
+        Total: {{ item.total }}
+      }
+
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
